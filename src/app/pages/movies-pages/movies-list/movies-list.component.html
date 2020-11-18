@@ -1,0 +1,51 @@
+
+<div class="movies-list">
+    <div class="movies-header d-flex align-items-center">
+      <div class="logo-section mr-3">
+        <img src="../../../../../assets/img/black.png" alt="">
+      </div>
+      <div>
+          <mat-form-field class="no-border search-field mb-0 d-flex" floatLabel="never">
+              <div class="inner-search-field" >
+                <input matInput #searchRef [ngModel]="searchQuery" name="searchQuery" placeholder="Search" (keydown.enter)="searchMovies(searchRef.value)" />
+              </div>
+              <div class="d-flex button-section">
+                <button class="cursor-pointer clear-icon" [hidden]="!searchRef.value.length || !searchQuery.length" (click)="clear()">
+                  <mat-icon>clear</mat-icon>
+                </button>
+                <button class="cursor-pointer" [disabled]="!searchRef.value.length" (click)="searchMovies(searchRef.value)">
+                  <mat-icon>search</mat-icon>
+                </button>
+              </div>
+            </mat-form-field>
+      </div>
+    </div>
+    <div class="movies-list-card">
+      <h3 class="heading white">Top Rated Movies</h3>
+      <div class="movies-card is-flex" *ngIf="movieData.results.length && !isListLoading">
+        <div class="card-row" *ngFor="let movies of movieData.results;">
+          <app-movies-card [movies]="movies"></app-movies-card>  
+        </div>
+      </div>
+      <!-- Reusable No Data (We can move this to seperate component and set accordingly)-->
+      <div class="d-flex align-items-center justify-content-center no-data" *ngIf="!movieData.results.length && !isListLoading">
+        <img src="../../../../assets/img/no-data-available.png">
+      </div>
+      <!--  Reusable Loader (We can move this to seperate component and set accordingly)-->
+      <div class="d-flex align-items-center justify-content-center loader-section" *ngIf="isListLoading">
+        <mat-spinner [diameter]="40" mode="indeterminate"></mat-spinner>
+    </div>
+    <div class="pagination-model">
+        <div class="pagination-section">
+            <ng-container *ngIf="movieData.results.length && !isListLoading">
+              <button class="mr-3" [disabled]="movieData.page <= 1" (click)="navigatePage(false)">
+                <mat-icon>keyboard_arrow_left</mat-icon>
+              </button>
+              <button [disabled]="movieData.total_pages == movieData.page" (click)="navigatePage(true)">
+                <mat-icon>keyboard_arrow_right</mat-icon>
+              </button>  
+            </ng-container>
+          </div>
+        </div>
+    </div>
+</div>

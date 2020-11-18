@@ -1,0 +1,45 @@
+.movies-header {
+  background: #05224a;
+  position: sticky;
+  top: 0;
+  height: 66px;
+  padding: 6px 30px;
+  z-index: 111;
+  .logo-section {
+    width: 100px;
+    img {
+      max-width: 100%;
+    }
+  }
+}
+.movies-list-card {
+  height: calc(100vh - 170px);
+  padding: 60px 32px 32px 32px;
+  .movies-card {
+    height: calc(100vh - 236px);
+    overflow: auto;
+    margin-bottom: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    .card-row {
+      width: 300px;
+      max-width: 300px;
+      flex: 1 1 300px;
+      margin: 0 44px 44px 0;
+    }
+  }
+  .pagination-section {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 44px;
+    button {
+      box-shadow: none !important;
+      border: none !important;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}

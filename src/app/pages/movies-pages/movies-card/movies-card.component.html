@@ -1,0 +1,17 @@
+<mat-card class="inner-card">
+    <mat-card-content>
+        <mat-card-title class="truncate-heading">{{movies.title}}</mat-card-title>
+        <div class="d-flex align-items-center justify-content-between">
+            <mat-card-subtitle class="mb-0">{{movies.release_date}}</mat-card-subtitle>
+            <div class="ratings-card pull-right align-items-center d-flex" >
+                <img src="../../../../../assets/img/star.svg" alt="">
+                <span>{{movies.vote_average}}</span>
+            </div>
+        </div>
+    </mat-card-content>
+    <img mat-card-image src="https://image.tmdb.org/t/p/w300/{{movies.poster_path}}" *ngIf="movies.poster_path">
+    <img mat-card-image src="../../../../../assets/img/no-poster.jpeg" *ngIf="!movies.poster_path">
+        <div class="overview">
+            <p>{{movies.overview}}</p>
+        </div>
+</mat-card>
