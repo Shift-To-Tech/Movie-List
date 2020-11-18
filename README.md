@@ -24,3 +24,7 @@ You can search the movies list as well
 
 - Run `npm run start`
 - Navigate your browser to `http://localhost:4200/app/index.html` to see the app running in your browser.
+
+### Deployed in heruko
+
+- Navigate your browser to `https://perpule-poc-movies.herokuapp.com/` to see the app running in your browser lively.
